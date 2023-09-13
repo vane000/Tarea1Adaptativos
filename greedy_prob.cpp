@@ -14,14 +14,14 @@ using namespace std;
 int main(int argc, char const *argv[]) {
     srand(time(NULL));
 
-    if (argc > 2) {
+    if (argc > 3) {
         if (argv[1][0] != '-' || argv[1][1] != 'i') {
             cout << "Debes ingresar el comando -i " << endl;
             return 0;
         }
     } else {
         cout << "Debes ingresar el formato de ejecución <Greedy> -i "
-                "<instancia-problema>"
+                "<instancia-problema> <probabilidad-aleatoriedad> "
              << endl;
         return 0;
     }
@@ -29,7 +29,7 @@ int main(int argc, char const *argv[]) {
     fstream file;
     string path = argv[2];
     vector<string> dataset;
-    int alpha = 20;
+    int alpha = atoi(argv[3]);
     file.open(path, ios::in);
 
     if (file.is_open()) {
