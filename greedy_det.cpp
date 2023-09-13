@@ -1,11 +1,11 @@
 #include <algorithm>
+#include <climits>
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <numeric>
 #include <string>
 #include <vector>
-#include <numeric>
-#include <climits>
 
 using namespace std;
 
@@ -68,14 +68,16 @@ int main(int argc, char const *argv[]) {
 
     // elegir siguientes letras
     // cada columna
-    for (int i = 1; i < dataset[0].size(); i++) {
+    for (int i = 1; i < dataset[0].size()-1; i++) {
         int min_cost = INT_MAX;
-        char best_letter = 'A';
+        char best_letter;
         vector<int> best_distances;
         // cada letra
+        cout << "probando columna" << i << endl;
         for (char letter : {'A', 'C', 'T', 'G'}) {
             // cada fila
             // copiar distancias
+            cout << "probando letra " << letter << endl;
             vector<int> distances_copy = distances;
             cost = 0;
             for (int sequence = 0; sequence < dataset.size(); sequence++) {
@@ -88,6 +90,7 @@ int main(int argc, char const *argv[]) {
             for (auto value : distances_copy) {
                 cost += value * value;
             }
+            cout << "costo acumulado: " << cost << endl;
             // cout << "chao" << endl;
             if (cost < min_cost) {
                 min_cost = cost;
@@ -95,15 +98,14 @@ int main(int argc, char const *argv[]) {
                 best_distances = distances_copy;
             }
         }
+        cout << result << endl;
+        cout << "mejor letra " << best_letter << endl;
         result += best_letter;
         distances = best_distances;
     }
 
     cout << result << endl;
-    for (auto value : distances) {
-        cost += value * value;
-    }
     cout << cost << endl;
-    
+
     return 1;
 }
