@@ -26,3 +26,6 @@ make
 ```bash
 make test
 ```
+
+## Resultados
+![Probabilidad vs costo](chart.png)

@@ -1,6 +1,6 @@
 all: det prob
 
-test: test_det test_prob
+test: test_det
 
 det: greedy_det.cpp
 	g++ $^ -o det.out
@@ -8,8 +8,8 @@ det: greedy_det.cpp
 prob: greedy_prob.cpp
 	g++ $^ -o prob.out
 
-test_det: det.out
+test_det: det |
 	./test_det.sh
 
-test_prob: prob.out
-	
+test_prob: prob |
+	./test_prob.sh
