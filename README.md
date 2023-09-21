@@ -21,3 +21,8 @@ make
 ```bash
 ./prob.out -i <instancia-problema>  [probabilidad]
 ```
+
+### Tests
+```bash
+make test
+```

@@ -10,3 +10,6 @@ prob: greedy_prob.cpp
 
 test_det: det.out
 	./test_det.sh
+
+test_prob: prob.out
+	
