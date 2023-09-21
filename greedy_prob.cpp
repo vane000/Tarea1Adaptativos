@@ -139,8 +139,8 @@ int main(int argc, char const *argv[]) {
         distances = best_distances;
     }
 
-    cout << result << endl;
+    //cout << result << endl;
     cout << cost << endl;
 
-    return 1;
+    return 0;
 }
