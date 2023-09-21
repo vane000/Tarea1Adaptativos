@@ -1,6 +1,6 @@
 all: det prob
 
-test: test_det
+test: test_det test_prob
 
 det: greedy_det.cpp
 	g++ $^ -o det.out
